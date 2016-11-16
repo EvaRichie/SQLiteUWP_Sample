@@ -1,0 +1,7 @@
+﻿Reference link below.
+
+https://docs.microsoft.com/en-us/ef/core/get-started/uwp/getting-started
+
+NOTE
+
+Dont use the Async operation with EFCore and SQLite it may cause .Net Native poor performance or crash.
