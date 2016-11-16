@@ -8,6 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel>
+            <TextBox x:Name="blogUriTbx" InputScope="Text" PlaceholderText="Blog uri" Margin="4"/>
+            <Button Content="Insert" Margin="4" Click="Button_Click"/>
+            <ListView x:Name="lv1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding Url}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

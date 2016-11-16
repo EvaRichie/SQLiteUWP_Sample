@@ -25,6 +25,26 @@ namespace SQLiteUWP_Sample
         public MainPage()
         {
             this.InitializeComponent();
+            this.Loaded += MainPage_Loaded;
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new DBInstanceContext())
+            {
+                lv1.ItemsSource = db.Blogs.ToList();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new DBInstanceContext())
+            {
+                var blog = new Blog() { Url = blogUriTbx.Text };
+                db.Blogs.Add(blog);
+                db.SaveChanges();
+                lv1.ItemsSource = db.Blogs.ToList();
+            }
         }
     }
 }

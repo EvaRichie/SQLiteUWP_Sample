@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace SQLiteUWP_Sample
 {
     /// <summary>
@@ -30,6 +32,11 @@ namespace SQLiteUWP_Sample
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new DBInstanceContext())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>
